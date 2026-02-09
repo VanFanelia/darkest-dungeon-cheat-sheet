@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darkest Dungeon Cheat Sheet</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 6mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 7pt;
+            line-height: 1.2;
+            color: #000;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            width: 281mm;
+            padding: 2mm;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5mm;
+            page-break-after: avoid;
+            page-break-inside: avoid;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 14pt;
+            margin-bottom: 3mm;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 2mm;
+        }
+
+        h2 {
+            font-size: 8pt;
+            margin: 1mm 0 1mm 0;
+            background: #333;
+            color: #fff;
+            padding: 1mm 2mm;
+            text-transform: uppercase;
+        }
+
+        .section {
+            margin-bottom: 0.5mm;
+            page-break-inside: avoid;
+        }
+
+        .curios-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1mm;
+            margin-bottom: 0.5mm;
+        }
+
+        .curios-grid-6 {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1mm;
+            margin-bottom: 0.5mm;
+        }
+
+        .curios-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1mm;
+            margin-bottom: 0.5mm;
+        }
+
+        .cove-provisions-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2mm;
+            grid-column: span 2;
+        }
+
+        .curio-card {
+            border: 1px solid #666;
+            padding: 1mm;
+            text-align: center;
+            background: #f9f9f9;
+        }
+
+        .curio-card-warning {
+            background: #FFF3E0;
+        }
+
+        .curio-img {
+            width: 100%;
+            height: 12mm;
+            object-fit: contain;
+            background: #ddd;
+            border: 1px solid #999;
+            margin-bottom: 0.5mm;
+        }
+
+        .curio-name {
+            font-weight: bold;
+            font-size: 6.5pt;
+            margin-bottom: 0.5mm;
+        }
+
+        .curio-item {
+            color: #006400;
+            font-weight: bold;
+            font-size: 6pt;
+        }
+
+        .curio-effect {
+            color: #444;
+            font-size: 5.5pt;
+            font-style: italic;
+            margin-top: 0.3mm;
+        }
+
+        .curio-avoid {
+            color: #8B0000;
+            font-weight: bold;
+            font-size: 6.5pt;
+        }
+
+        .curio-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1mm;
+            margin-top: 1mm;
+        }
+
+        .curio-split-col {
+            font-size: 6pt;
+        }
+
+        .curio-split-col strong {
+            display: block;
+            font-size: 6pt;
+            margin-bottom: 0.5mm;
+            text-decoration: underline;
+        }
+
+        .provisions-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 6.5pt;
+        }
+
+        .provisions-table th,
+        .provisions-table td {
+            border: 1px solid #333;
+            padding: 0.5mm;
+            text-align: center;
+        }
+
+        .provisions-table th {
+            background: #333;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .provisions-table td.check {
+            background: #90EE90;
+        }
+
+        .provisions-table td.important {
+            background: #FFD700;
+            font-weight: bold;
+        }
+
+        .main-section {
+            /* Removed two-column layout */
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+                <!-- ALLE DUNGEONS -->
+                <div class="section">
+                    <h2>All Dungeons</h2>
+                    <div class="curios-grid-5">
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Crate.png/180px-Crate.png?555da8" alt="Crate" class="curio-img">
+                            <div class="curio-name">Crate</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">Heirlooms</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Discarded_Pack.png/180px-Discarded_Pack.png?a0ba06" alt="Discarded Pack" class="curio-img">
+                            <div class="curio-name">Discarded Pack</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">Supplies/Gold</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Sack.png/180px-Sack.png?b77c1c" alt="Sack" class="curio-img">
+                            <div class="curio-name">Sack</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">Gold</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Sconce.png/108px-Sconce.png?e9ad01" alt="Sconce" class="curio-img">
+                            <div class="curio-name">Sconce</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">Torch</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Eldritch_Altar.png/150px-Eldritch_Altar.png?71d012" alt="Eldritch Altar" class="curio-img">
+                            <div class="curio-name">Eldritch Altar</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">Remove Quirk-</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Shambler%27s_Altar.png/164px-Shambler%27s_Altar.png?6b93db" alt="Shambler's Altar" class="curio-img">
+                            <div class="curio-name">Shambler's Altar</div>
+                            <div class="curio-avoid">Meiden: Fackel spawnt Boss</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Stack_of_Books.png/180px-Stack_of_Books.png?c94f9e" alt="Stack of Books" class="curio-img">
+                            <div class="curio-name">Stack of Books</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">22% Quirk+</div>
+                            <div class="curio-effect" style="color: #8B0000;">22% +25 Stress, 11% Quirk-</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Heirloom_Chest.png/180px-Heirloom_Chest.png?dd8193" alt="Heirloom Chest" class="curio-img">
+                            <div class="curio-name">Heirloom Chest (Corridor)</div>
+                            <div class="curio-item">Skeleton Key / Antivenom</div>
+                            <div class="curio-effect">3-4 Heirlooms</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Heirloom_Chest.png/180px-Heirloom_Chest.png?dd8193" alt="Heirloom Chest" class="curio-img">
+                            <div class="curio-name">Heirloom Chest (Treasure Room)</div>
+                            <div class="curio-item">Skeleton Key / Shovel</div>
+                            <div class="curio-effect">2-3 Loot</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Ancient_Artifact.png/180px-Ancient_Artifact.png?d5309d" alt="Ancient Artifact" class="curio-img">
+                            <div class="curio-name">Ancient Artifact</div>
+                            <div class="curio-item">Skeleton Key</div>
+                            <div class="curio-effect">Best Trinkets</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RUINS -->
+                <div class="section">
+                    <h2>Ruins</h2>
+                    <div class="curios-grid-6">
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Alchemy_Table.png/180px-Alchemy_Table.png?910662" alt="Alchemy Table" class="curio-img">
+                            <div class="curio-name">Alchemy Table</div>
+                            <div class="curio-split">
+                                <div class="curio-split-col">
+                                    <div style="color: #006400; font-weight: bold; font-size: 6.5pt;">With Herbs:</div>
+                                    <div style="color: #444; font-style: italic; font-size: 6pt;">Gold/Gems</div>
+                                </div>
+                                <div class="curio-split-col">
+                                    <div style="color: #006400; font-weight: bold; font-size: 6.5pt;">With Torch:</div>
+                                    <div style="color: #444; font-style: italic; font-size: 6pt;">Light to 100</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Altar_of_Light.png/116px-Altar_of_Light.png?374de9" alt="Altar of Light" class="curio-img">
+                            <div class="curio-name">Altar of Light</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">+30% DMG</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Bookshelf.png/180px-Bookshelf.png?f6f137" alt="Bookshelf" class="curio-img">
+                            <div class="curio-name">Bookshelf</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">20% Scouting, 13% Quirk+</div>
+                            <div class="curio-effect" style="color: #8B0000;">20% +15 Stress, 7% Quirk-</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Confession_Booth.png/180px-Confession_Booth.png?85f0ad" alt="Confession Booth" class="curio-img">
+                            <div class="curio-name">Confession Booth</div>
+                            <div class="curio-split">
+                                <div class="curio-split-col">
+                                    <div style="color: #006400; font-weight: bold; font-size: 6.5pt;">With Holy Water:</div>
+                                    <div style="color: #444; font-style: italic; font-size: 6pt;">-30 Stress</div>
+                                </div>
+                                <div class="curio-split-col">
+                                    <div style="color: #006400; font-weight: bold; font-size: 6.5pt;">Without:</div>
+                                    <div style="color: #006400; font-style: italic; font-size: 6pt;">25% Quirk-</div>
+                                    <div style="color: #8B0000; font-style: italic; font-size: 6pt;">50% +15 Stress</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Decorative_Urn.png/180px-Decorative_Urn.png?3e2f1c" alt="Decorative Urn" class="curio-img">
+                            <div class="curio-name">Decorative Urn</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">Gems/Trinket</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Iron_Maiden.png/139px-Iron_Maiden.png?7f2164" alt="Iron Maiden" class="curio-img">
+                            <div class="curio-name">Iron Maiden</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">Loot</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Locked_Display_Cabinet.png/180px-Locked_Display_Cabinet.png?867344" alt="Locked Display Cabinet" class="curio-img">
+                            <div class="curio-name">Locked Display Cabinet</div>
+                            <div class="curio-item">Skeleton Key / Shovel</div>
+                            <div class="curio-effect">Gold/Heirlooms</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Holy_Fountain.png/55px-Holy_Fountain.png?bad356" alt="Holy Fountain" class="curio-img">
+                            <div class="curio-name">Holy Fountain</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">-20 Stress, Heal</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Locked_Sarcophagus.png/180px-Locked_Sarcophagus.png?9fa14f" alt="Locked Sarcophagus" class="curio-img">
+                            <div class="curio-name">Locked Sarcophagus</div>
+                            <div class="curio-item">Skeleton Key</div>
+                            <div class="curio-effect">Gold/Heirlooms + Trinket</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Sarcophagus.png/180px-Sarcophagus.png?ff5c93" alt="Sarcophagus" class="curio-img">
+                            <div class="curio-name">Sarcophagus</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">60% Gold/Heirlooms</div>
+                            <div class="curio-effect" style="color: #8B0000;">20% Thanatophobia</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Suit_of_Armor.png/128px-Suit_of_Armor.png?687778" alt="Suit of Armor" class="curio-img">
+                            <div class="curio-name">Suit of Armor</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">+15% PROT / +10 DODGE Buff</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEALD -->
+                <div class="section">
+                    <h2>Weald</h2>
+                    <div class="curios-grid-5">
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Beast_Carcass.png/180px-Beast_Carcass.png?d4820d" alt="Beast Carcass" class="curio-img">
+                            <div class="curio-name">Beast Carcass</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">Food</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Eerie_Spiderweb.png/180px-Eerie_Spiderweb.png?e14a94" alt="Eerie Spiderweb" class="curio-img">
+                            <div class="curio-name">Eerie Spiderweb</div>
+                            <div class="curio-item">Bandage</div>
+                            <div class="curio-effect">Gold/Gems + Trinket</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Left_Luggage.png/180px-Left_Luggage.png?73cccb" alt="Left Luggage" class="curio-img">
+                            <div class="curio-name">Left Luggage</div>
+                            <div class="curio-item">Skeleton Key / Antivenom</div>
+                            <div class="curio-effect">Loot</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Mummified_Remains.png/180px-Mummified_Remains.png?d549a5" alt="Mummified Remains" class="curio-img">
+                            <div class="curio-name">Mummified Remains</div>
+                            <div class="curio-item">Bandage</div>
+                            <div class="curio-effect">Gold/Trinkets</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Old_Tree.png/180px-Old_Tree.png?7a85a2" alt="Old Tree" class="curio-img">
+                            <div class="curio-name">Old Tree</div>
+                            <div class="curio-item">Antivenom</div>
+                            <div class="curio-effect">Loot</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Shallow_Grave.png/180px-Shallow_Grave.png?3e1731" alt="Shallow Grave" class="curio-img">
+                            <div class="curio-name">Shallow Grave</div>
+                            <div class="curio-item">Shovel</div>
+                            <div class="curio-effect">Gems/Heirlooms</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Troubling_Effigy.png/180px-Troubling_Effigy.png?ab10f5" alt="Troubling Effigy" class="curio-img">
+                            <div class="curio-name">Troubling Effigy</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">Quirk+</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Ancient_Coffin.png/180px-Ancient_Coffin.png?c1f2e1" alt="Ancient Coffin" class="curio-img">
+                            <div class="curio-name">Ancient Coffin</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">50% Gold/Heirloom</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Pristine_Fountain.png/176px-Pristine_Fountain.png?a4b835" alt="Pristine Fountain" class="curio-img">
+                            <div class="curio-name">Pristine Fountain</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">-30 Stress</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Traveler%27s_Tent.png/180px-Traveler%27s_Tent.png?1510b3" alt="Traveler's Tent" class="curio-img">
+                            <div class="curio-name">Traveler's Tent</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">38% Gold/Supplies, 38% Scouting</div>
+                            <div class="curio-effect" style="color: #8B0000;">13% +25 Stress</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WARRENS -->
+                <div class="section">
+                    <h2>Warrens</h2>
+                    <div class="curios-grid-5">
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Dinner_Cart.png/180px-Dinner_Cart.png?c354e9" alt="Dinner Cart" class="curio-img">
+                            <div class="curio-name">Dinner Cart</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">Food + Gold/Trinket</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Moonshine_Barrel.png/180px-Moonshine_Barrel.png?71e0d4" alt="Moonshine Barrel" class="curio-img">
+                            <div class="curio-name">Moonshine Barrel</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">+30% DMG</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Occult_Scrawlings.png/180px-Occult_Scrawlings.png?48e9d6" alt="Occult Scrawlings" class="curio-img">
+                            <div class="curio-name">Occult Scrawlings</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">33% Quirk+</div>
+                            <div class="curio-effect" style="color: #8B0000;">17% Quirk-, 25% +25 Stress</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Pile_of_Bones.png/180px-Pile_of_Bones.png?d1b6f0" alt="Pile of Bones" class="curio-img">
+                            <div class="curio-name">Pile of Bones</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">Loot</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Pile_of_Scrolls.png/180px-Pile_of_Scrolls.png?9edcd3" alt="Pile of Scrolls" class="curio-img">
+                            <div class="curio-name">Pile of Scrolls</div>
+                            <div class="curio-item">Torch</div>
+                            <div class="curio-effect">Quirk-</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Rack_of_Blades.png/180px-Rack_of_Blades.png?c4b13d" alt="Rack of Blades" class="curio-img">
+                            <div class="curio-name">Rack of Blades</div>
+                            <div class="curio-item">Bandage</div>
+                            <div class="curio-effect">Gold/Gems + Food</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Bone_Altar.png/142px-Bone_Altar.png?e7d74a" alt="Bone Altar" class="curio-img">
+                            <div class="curio-name">Bone Altar</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">+15% DMG Buff</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Makeshift_Dining_Table.png/180px-Makeshift_Dining_Table.png?faef8c" alt="Makeshift Dining Table" class="curio-img">
+                            <div class="curio-name">Makeshift Dining Table</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">Food + Gold/Supplies</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Sacrificial_Stone.png/180px-Sacrificial_Stone.png?4d8737" alt="Sacrificial Stone" class="curio-img">
+                            <div class="curio-name">Sacrificial Stone</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">25% Quirk-</div>
+                            <div class="curio-effect" style="color: #8B0000;">50% +50 Stress</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cove-provisions-wrapper">
+                <!-- COVE -->
+                <div class="section">
+                    <h2>Cove</h2>
+                    <div class="curios-grid">
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Barnacle_Crusted_Chest.png/180px-Barnacle_Crusted_Chest.png?ab1e14" alt="Barnacle Chest" class="curio-img">
+                            <div class="curio-name">Barnacle Chest</div>
+                            <div class="curio-item">Shovel</div>
+                            <div class="curio-effect">Loot</div>
+                        </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Bas-Relief.png/180px-Bas-Relief.png" alt="Bas-Relief" class="curio-img">
+                            <div class="curio-name">Bas-Relief</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">67% Quirk+</div>
+                            <div class="curio-effect" style="color: #8B0000;">22% Quirk-, 11% Disease</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Brackish_Tide_Pool.png/180px-Brackish_Tide_Pool.png?c95229" alt="Brackish Tide Pool" class="curio-img">
+                            <div class="curio-name">Brackish Tide Pool</div>
+                            <div class="curio-item">Antivenom</div>
+                            <div class="curio-effect">Heal/Stress Reduction</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Eerie_Coral.png/119px-Eerie_Coral.png?a9ed44" alt="Eerie Coral" class="curio-img">
+                            <div class="curio-name">Eerie Coral</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">Quirk-</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Fish_Carcass.png/180px-Fish_Carcass.png?de6e73" alt="Fish Carcass" class="curio-img">
+                            <div class="curio-name">Fish Carcass</div>
+                            <div class="curio-item">Medicinal Herbs</div>
+                            <div class="curio-effect">Gems/Trinkets + Supplies</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Fish_Idol.png/150px-Fish_Idol.png?a4d277" alt="Fish Idol" class="curio-img">
+                            <div class="curio-name">Fish Idol</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">+18% DMG</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Giant_Oyster.png/180px-Giant_Oyster.png?e342bf" alt="Giant Oyster" class="curio-img">
+                            <div class="curio-name">Giant Oyster</div>
+                            <div class="curio-split">
+                                <div class="curio-split-col">
+                                    <div style="color: #006400; font-weight: bold; font-size: 6.5pt;">With Shovel:</div>
+                                    <div style="color: #444; font-style: italic; font-size: 6pt;">Gold/Trinkets</div>
+                                </div>
+                                <div class="curio-split-col">
+                                    <div style="color: #006400; font-weight: bold; font-size: 6.5pt;">With Dog Treats:</div>
+                                    <div style="color: #444; font-style: italic; font-size: 6pt;">+25 DODGE</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="https://darkestdungeon.wiki.gg/images/thumb/Ship%27s_Figurehead.png/146px-Ship%27s_Figurehead.png?ed55ff" alt="Ship's Figurehead" class="curio-img">
+                            <div class="curio-name">Ship's Figurehead</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">67% -25 Stress or+20% DMG</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PROVISIONS TABLE -->
+                <div class="section">
+                    <h2>Provisions per Dungeon</h2>
+                    <table class="provisions-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Ruins</th>
+                                <th>Weald</th>
+                                <th>Warrens</th>
+                                <th>Cove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Holy Water</strong></td>
+                                <td class="important">4-6</td>
+                                <td class="check">2-3</td>
+                                <td class="check">1-2</td>
+                                <td class="check">1-2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Medicinal Herbs</strong></td>
+                                <td class="check">1-2</td>
+                                <td class="check">2-3</td>
+                                <td class="important">4-6</td>
+                                <td class="check">2-3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bandages</strong></td>
+                                <td>-</td>
+                                <td class="important">4-6</td>
+                                <td class="check">1-2</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Antivenom</strong></td>
+                                <td class="check">1-2</td>
+                                <td class="check">2-3</td>
+                                <td>-</td>
+                                <td class="check">2-3</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Shovel</strong></td>
+                                <td class="check">1-2</td>
+                                <td class="check">2-3</td>
+                                <td>-</td>
+                                <td class="important">4-6</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Skeleton Key</strong></td>
+                                <td class="check">2-3</td>
+                                <td class="check">1-2</td>
+                                <td class="check">1-2</td>
+                                <td class="check">1-2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Torch (Curios)</strong></td>
+                                <td class="check">1-2</td>
+                                <td>-</td>
+                                <td class="check">1-2</td>
+                                <td>-</td>
+                            </tr>
+                            <tr style="border-top: 2px solid #333;">
+                                <td><strong>Torch (Mission)</strong></td>
+                                <td style="text-align: center;">Short: 8</td>
+                                <td colspan="2" style="text-align: center;">Medium: 12</td>
+                                <td style="text-align: center;">Long: 16</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+    </div>
+</body>
+</html>
