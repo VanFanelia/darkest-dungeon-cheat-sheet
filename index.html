@@ -82,7 +82,7 @@
 
         .cove-provisions-wrapper {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 2fr;
             gap: 2mm;
             grid-column: span 2;
         }
@@ -312,7 +312,13 @@
         .boss-card {
             border: 1px solid #444;
             display: flex;
+            flex-direction: column;
+        }
+
+        .boss-card-content {
+            display: flex;
             flex-direction: row;
+            flex: 1;
         }
 
         .boss-card-left {
@@ -811,8 +817,11 @@
                     </div>
                 </div>
 
+                <!-- COVE + PROVISIONS WRAPPER -->
+                <div class="cove-provisions-wrapper" style="grid-column: span 2;">
+
                 <!-- COVE -->
-                <div class="section" style="grid-column: span 1;">
+                <div class="section">
                     <h2>Cove</h2>
                     <div class="curios-grid">
                         <div class="curio-card">
@@ -876,7 +885,7 @@
                 </div>
 
                 <!-- PROVISIONS TABLE -->
-                <div class="section" style="grid-column: span 1;">
+                <div class="section">
                     <h2>Provisions per Dungeon</h2>
                     <table class="provisions-table">
                         <colgroup>
@@ -958,6 +967,8 @@
                         </tbody>
                     </table>
                 </div>
+
+                </div><!-- end cove-provisions-wrapper -->
     </div>
 
     <!-- ===== BACK PAGE ===== -->
@@ -1077,10 +1088,11 @@
             <!-- ROW 1 -->
             <!-- Necromancer Lord -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_necromancer.gif" alt="Necromancer Lord"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header ruins">Necromancer Lord · Ruins</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_necromancer.gif" alt="Necromancer Lord"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1108,13 +1120,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Prophet -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_prophet.png" alt="Prophet"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header ruins">The Prophet · Ruins</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_prophet.png" alt="Prophet"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1142,13 +1156,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Hag -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_hag.png" alt="Hag"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header weald">The Hag · Weald</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_hag.png" alt="Hag"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1187,13 +1203,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Brigand Pounder -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_brigand_pounder.png" alt="Brigand Pounder"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header weald">Brigand Pounder · Weald</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_brigand_pounder.png" alt="Brigand Pounder"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1221,14 +1239,16 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- ROW 2 -->
             <!-- Swine Prince -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_swine_prince.png" alt="Swine Prince"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header warrens">Swine Prince + Wilbur · Warrens</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_swine_prince.png" alt="Swine Prince"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1256,13 +1276,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- The Flesh -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_flesh.png" alt="The Flesh"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header warrens">The Flesh · Warrens</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_flesh.png" alt="The Flesh"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1290,13 +1312,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Siren -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_siren.png" alt="Siren"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header cove">The Siren · Cove</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_siren.png" alt="Siren"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1324,14 +1348,16 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- ROW 3 -->
             <!-- Drowned Crew -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_drowned_crew.png" alt="Drowned Crew"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header cove">Drowned Crew · Cove</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_drowned_crew.png" alt="Drowned Crew"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1359,13 +1385,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Brigand Vvulf -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_vvulf.png" alt="Brigand Vvulf"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header special">Brigand Vvulf · Town Event</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_vvulf.png" alt="Brigand Vvulf"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1393,13 +1421,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Shrieker -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shrieker.png" alt="Shrieker"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header special">The Shrieker · Town Event</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shrieker.png" alt="Shrieker"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1427,13 +1457,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Shambler -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shambler.png" alt="Shambler"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header special">The Shambler · Any Dungeon</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shambler.png" alt="Shambler"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1471,13 +1503,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Shuffling Horror -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shuffling_horror.gif" alt="Shuffling Horror"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header darkest">Shuffling Horror · DD Q1</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shuffling_horror.gif" alt="Shuffling Horror"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1505,13 +1539,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Templar Impaler -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_templar_impaler.png" alt="Templar Impaler"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header darkest">Templar Impaler · DD Q2</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_templar_impaler.png" alt="Templar Impaler"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1539,14 +1575,16 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- ROW 4 -->
             <!-- Templar Warlord -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_templar_warlord.png" alt="Templar Warlord"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header darkest">Templar Warlord · DD Q2</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_templar_warlord.png" alt="Templar Warlord"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1574,13 +1612,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Mammoth Cyst -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_mammoth_cyst.gif" alt="Mammoth Cyst"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header darkest">Mammoth Cyst · DD Q3</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_mammoth_cyst.gif" alt="Mammoth Cyst"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1608,13 +1648,15 @@
                 </div>
                 </div>
             </div>
+            </div>
 
             <!-- Heart of Darkness -->
             <div class="boss-card">
-                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_heart_of_darkness.png" alt="Heart of Darkness"></div></div>
-                <div class="boss-card-right">
                 <div class="boss-card-header darkest">Heart of Darkness · DD Q4</div>
-                <div class="boss-card-body">
+                <div class="boss-card-content">
+                    <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_heart_of_darkness.png" alt="Heart of Darkness"></div></div>
+                    <div class="boss-card-right">
+                    <div class="boss-card-body">
                     <div class="boss-section macht">
                         <div class="boss-section-label">What it does</div>
                         <ul>
@@ -1642,6 +1684,7 @@
                     </div>
                 </div>
                 </div>
+            </div>
             </div>
 
 
