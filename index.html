@@ -22,7 +22,7 @@
             line-height: 1.2;
             color: #000;
             background: #fff;
-            overflow: hidden;
+            overflow: auto;
         }
 
         .container {
@@ -31,7 +31,8 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5mm;
-            page-break-after: avoid;
+            page-break-after: always;
+            break-after: page;
             page-break-inside: avoid;
         }
 
@@ -153,6 +154,11 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 6.5pt;
+            table-layout: fixed;
+        }
+
+        .provisions-table col.col-item {
+            width: 22mm;
         }
 
         .provisions-table th,
@@ -166,6 +172,12 @@
             background: #333;
             color: #fff;
             font-weight: bold;
+        }
+
+        .provisions-table .sub-header th {
+            background: #555;
+            font-size: 5pt;
+            font-weight: normal;
         }
 
         .provisions-table td.check {
@@ -187,7 +199,321 @@
                 print-color-adjust: exact;
             }
         }
-    </style>
+
+        /* ===== BACK PAGE ===== */
+
+        .container-back {
+            width: 281mm;
+            padding: 2mm;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5mm;
+            page-break-after: avoid;
+            break-after: auto;
+        }
+
+        /* --- Dungeon hero affinity --- */
+        .back-affinity-section h2 {
+            font-size: 7pt;
+            margin-bottom: 1mm;
+            background: #333;
+            color: #fff;
+            padding: 0.8mm 2mm;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .dungeon-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1mm;
+        }
+
+        .dungeon-card {
+            border: 1px solid #444;
+            overflow: hidden;
+        }
+
+        .dungeon-card-header {
+            color: #fff;
+            font-weight: bold;
+            font-size: 6.5pt;
+            padding: 0.8mm 1.5mm;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .dungeon-card-header.ruins   { background: #5a2060; }
+        .dungeon-card-header.weald   { background: #1e4d1e; }
+        .dungeon-card-header.warrens { background: #6b3d1e; }
+        .dungeon-card-header.cove    { background: #0d3d6b; }
+
+        .hero-tier {
+            padding: 0.5mm 1mm;
+        }
+        .hero-tier.tier-rec  { background: #fffde7; }
+        .hero-tier.tier-ok   { background: #f5f5f5; }
+
+
+        .tier-label {
+            font-size: 5pt;
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.3mm;
+        }
+
+        .hero-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5mm;
+        }
+
+        .hero-icon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 10.5mm;
+        }
+
+        .hero-icon img {
+            width: 10mm;
+            height: 10mm;
+            object-fit: cover;
+            border: 1px solid #999;
+            background: #e8e8e8;
+        }
+
+        .hero-icon span {
+            font-size: 5pt;
+            text-align: center;
+            line-height: 1.2;
+            color: #333;
+            max-width: 10.5mm;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .avoid-text {
+            font-size: 4.5pt;
+            color: #880e4f;
+            font-style: italic;
+        }
+
+        /* --- Boss grid --- */
+        .back-boss-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: auto;
+            gap: 1mm;
+        }
+
+        .boss-card {
+            border: 1px solid #444;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .boss-card-left {
+            width: 25%;
+            flex-shrink: 0;
+            display: flex;
+        }
+
+        .boss-card-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+        }
+
+        .boss-img-wrap {
+            background: #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .boss-img-wrap img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .boss-empty {
+            border: 1px solid #ccc;
+            background: #fafafa;
+        }
+
+        .boss-card-header {
+            color: #fff;
+            font-weight: bold;
+            font-size: 5pt;
+            padding: 0.5mm 1.5mm;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            flex-shrink: 0;
+        }
+        .boss-card-header.ruins   { background: #5a2060; }
+        .boss-card-header.weald   { background: #1e4d1e; }
+        .boss-card-header.warrens { background: #6b3d1e; }
+        .boss-card-header.cove    { background: #0d3d6b; }
+        .boss-card-header.darkest { background: #2d0a0a; }
+        .boss-card-header.special { background: #4a4a4a; }
+
+        .boss-card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .boss-section {
+            padding: 0.4mm 1mm;
+            flex: 1;
+            overflow: hidden;
+        }
+        .boss-section.macht  { background: #fff5f5; }
+        .boss-section.strat  { background: #f5fff5; }
+        .boss-section.helden {
+            background: #f0f5ff;
+            border-top: 1px solid #dde;
+            flex: 0 0 auto;
+        }
+
+        .boss-section-label {
+            font-weight: bold;
+            font-size: 4pt;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 0.2mm;
+        }
+
+        .boss-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .boss-section ul li {
+            font-size: 4.5pt;
+            line-height: 1.2;
+            padding-left: 2mm;
+            position: relative;
+            margin-bottom: 0.1mm;
+        }
+
+        .boss-section ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            font-size: 3.5pt;
+            color: #888;
+            top: 0.1mm;
+        }
+
+        .boss-section .helden-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4mm;
+            align-items: center;
+        }
+
+        .boss-section .helden-icons img,
+        .helden-col img {
+            width: 7mm;
+            height: 7mm;
+            object-fit: cover;
+            border: 1px solid #aaa;
+            background: #e8e8e8;
+        }
+
+        .helden-split {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1mm;
+        }
+
+        .helden-split > div {
+            flex: 0 0 auto;
+        }
+
+        .helden-col-label {
+            font-size: 3.5pt;
+            font-weight: bold;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 0.2mm;
+        }
+
+        .helden-col-label.avoid-label-col {
+            text-align: right;
+            color: #8B0000;
+        }
+
+        .helden-col {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 0.4mm;
+        }
+
+        .helden-col.avoid-col {
+            justify-content: flex-end;
+        }
+
+        .avoid-img {
+            width: 5.25mm !important;
+            height: 5.25mm !important;
+            border: 1px solid #c00 !important;
+            opacity: 0.6;
+        }
+
+        /* Tip cell */
+        .boss-tip-cell {
+            border: 1px solid #bbb;
+            background: #fffbf0;
+            padding: 1.5mm;
+            overflow: hidden;
+        }
+
+        .boss-tip-cell h3 {
+            font-size: 5.5pt;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #4a2c00;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 0.5mm;
+            margin-bottom: 0.8mm;
+        }
+
+        .boss-tip-cell ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .boss-tip-cell ul li {
+            font-size: 5pt;
+            line-height: 1.3;
+            padding-left: 2.5mm;
+            position: relative;
+            margin-bottom: 0.3mm;
+        }
+
+        .boss-tip-cell ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            font-size: 4pt;
+            color: #888;
+            top: 0.1mm;
+        }
+
+        </style>
 </head>
 <body>
     <div class="container">
@@ -261,7 +587,8 @@
                 <!-- RUINS -->
                 <div class="section">
                     <h2>Ruins</h2>
-                    <div class="curios-grid-6">
+                    <!-- Row 1: tall cards (splits / multiple effects) -->
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 1mm; margin-bottom: 1mm;">
                         <div class="curio-card">
                             <img src="image/180px-Alchemy_Table.png" alt="Alchemy Table" class="curio-img">
                             <div class="curio-name">Alchemy Table</div>
@@ -275,12 +602,6 @@
                                     <div style="color: #444; font-style: italic; font-size: 6pt;">Light to 100</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="curio-card">
-                            <img src="image/116px-Altar_of_Light.png" alt="Altar of Light" class="curio-img">
-                            <div class="curio-name">Altar of Light</div>
-                            <div class="curio-item">Holy Water</div>
-                            <div class="curio-effect">+30% DMG</div>
                         </div>
                         <div class="curio-card curio-card-warning">
                             <img src="image/180px-Bookshelf.png" alt="Bookshelf" class="curio-img">
@@ -304,6 +625,28 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="curio-card curio-card-warning">
+                            <img src="image/180px-Sarcophagus.png" alt="Sarcophagus" class="curio-img">
+                            <div class="curio-name">Sarcophagus</div>
+                            <div class="curio-item">None</div>
+                            <div class="curio-effect">60% Gold/Heirlooms</div>
+                            <div class="curio-effect" style="color: #8B0000;">20% Thanatophobia</div>
+                        </div>
+                        <div class="curio-card">
+                            <img src="image/180px-Locked_Display_Cabinet.png" alt="Display Cabinet" class="curio-img">
+                            <div class="curio-name">Display Cabinet</div>
+                            <div class="curio-item">Skeleton Key / Shovel</div>
+                            <div class="curio-effect">Gold/Heirlooms</div>
+                        </div>
+                    </div>
+                    <!-- Row 2: short cards (item + single effect) -->
+                    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 1mm;">
+                        <div class="curio-card">
+                            <img src="image/116px-Altar_of_Light.png" alt="Altar of Light" class="curio-img">
+                            <div class="curio-name">Altar of Light</div>
+                            <div class="curio-item">Holy Water</div>
+                            <div class="curio-effect">+30% DMG</div>
+                        </div>
                         <div class="curio-card">
                             <img src="image/180px-Decorative_Urn.png" alt="Decorative Urn" class="curio-img">
                             <div class="curio-name">Decorative Urn</div>
@@ -317,12 +660,6 @@
                             <div class="curio-effect">Loot</div>
                         </div>
                         <div class="curio-card">
-                            <img src="image/180px-Locked_Display_Cabinet.png" alt="Locked Display Cabinet" class="curio-img">
-                            <div class="curio-name">Locked Display Cabinet</div>
-                            <div class="curio-item">Skeleton Key / Shovel</div>
-                            <div class="curio-effect">Gold/Heirlooms</div>
-                        </div>
-                        <div class="curio-card">
                             <img src="image/55px-Holy_Fountain.png" alt="Holy Fountain" class="curio-img">
                             <div class="curio-name">Holy Fountain</div>
                             <div class="curio-item">Holy Water</div>
@@ -330,16 +667,9 @@
                         </div>
                         <div class="curio-card">
                             <img src="image/180px-Locked_Sarcophagus.png" alt="Locked Sarcophagus" class="curio-img">
-                            <div class="curio-name">Locked Sarcophagus</div>
+                            <div class="curio-name">Sarcophagus</div>
                             <div class="curio-item">Skeleton Key</div>
                             <div class="curio-effect">Gold/Heirlooms + Trinket</div>
-                        </div>
-                        <div class="curio-card curio-card-warning">
-                            <img src="image/180px-Sarcophagus.png" alt="Sarcophagus" class="curio-img">
-                            <div class="curio-name">Sarcophagus</div>
-                            <div class="curio-item">None</div>
-                            <div class="curio-effect">60% Gold/Heirlooms</div>
-                            <div class="curio-effect" style="color: #8B0000;">20% Thanatophobia</div>
                         </div>
                         <div class="curio-card">
                             <img src="image/128px-Suit_of_Armor.png" alt="Suit of Armor" class="curio-img">
@@ -481,9 +811,8 @@
                     </div>
                 </div>
 
-                <div class="cove-provisions-wrapper">
                 <!-- COVE -->
-                <div class="section">
+                <div class="section" style="grid-column: span 1;">
                     <h2>Cove</h2>
                     <div class="curios-grid">
                         <div class="curio-card">
@@ -547,78 +876,778 @@
                 </div>
 
                 <!-- PROVISIONS TABLE -->
-                <div class="section">
+                <div class="section" style="grid-column: span 1;">
                     <h2>Provisions per Dungeon</h2>
                     <table class="provisions-table">
+                        <colgroup>
+                            <col class="col-item">
+                            <col span="12" class="col-dungeon">
+                        </colgroup>
                         <thead>
                             <tr>
-                                <th>Item</th>
-                                <th>Ruins</th>
-                                <th>Weald</th>
-                                <th>Warrens</th>
-                                <th>Cove</th>
+                                <th rowspan="2">Item</th>
+                                <th colspan="3">Ruins</th>
+                                <th colspan="3">Weald</th>
+                                <th colspan="3">Warrens</th>
+                                <th colspan="3">Cove</th>
+                            </tr>
+                            <tr class="sub-header">
+                                <th>Short</th><th>Med</th><th>Long</th>
+                                <th>Short</th><th>Med</th><th>Long</th>
+                                <th>Short</th><th>Med</th><th>Long</th>
+                                <th>Short</th><th>Med</th><th>Long</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Holy Water</strong></td>
-                                <td class="important">4-6</td>
-                                <td class="check">2-3</td>
-                                <td class="check">1-2</td>
-                                <td class="check">1-2</td>
+                                <td class="important">2</td><td class="important">3</td><td class="important">4</td>
+                                <td class="check">1</td><td class="check">1</td><td class="check">2</td>
+                                <td>-</td><td>-</td><td>-</td>
+                                <td>-</td><td>-</td><td class="check">1</td>
                             </tr>
                             <tr>
                                 <td><strong>Medicinal Herbs</strong></td>
-                                <td class="check">1-2</td>
-                                <td class="check">2-3</td>
-                                <td class="important">4-6</td>
-                                <td class="check">2-3</td>
+                                <td class="check">1</td><td class="check">1</td><td class="check">2</td>
+                                <td>-</td><td class="check">1</td><td class="check">1</td>
+                                <td class="important">2</td><td class="important">3</td><td class="important">5</td>
+                                <td class="check">2</td><td class="check">3</td><td class="check">5</td>
                             </tr>
                             <tr>
                                 <td><strong>Bandages</strong></td>
-                                <td>-</td>
-                                <td class="important">4-6</td>
-                                <td class="check">1-2</td>
-                                <td>-</td>
+                                <td>-</td><td>-</td><td class="check">1</td>
+                                <td class="check">1</td><td class="check">2</td><td class="check">3</td>
+                                <td class="check">1</td><td class="check">2</td><td class="check">2</td>
+                                <td class="important">2</td><td class="important">3</td><td class="important">4</td>
                             </tr>
                             <tr>
                                 <td><strong>Antivenom</strong></td>
-                                <td class="check">1-2</td>
-                                <td class="check">2-3</td>
-                                <td>-</td>
-                                <td class="check">2-3</td>
+                                <td>-</td><td>-</td><td>-</td>
+                                <td class="important">2</td><td class="important">3</td><td class="important">4</td>
+                                <td>-</td><td class="check">1</td><td class="check">1</td>
+                                <td class="check">1</td><td class="check">1</td><td class="check">1</td>
                             </tr>
                             <tr>
                                 <td><strong>Shovel</strong></td>
-                                <td class="check">1-2</td>
-                                <td class="check">2-3</td>
-                                <td>-</td>
-                                <td class="important">4-6</td>
+                                <td class="check">2</td><td class="check">3</td><td class="check">3</td>
+                                <td class="important">3</td><td class="important">4</td><td class="important">5</td>
+                                <td class="check">2</td><td class="check">3</td><td class="check">3</td>
+                                <td class="check">2</td><td class="important">4</td><td class="important">5</td>
                             </tr>
                             <tr>
                                 <td><strong>Skeleton Key</strong></td>
-                                <td class="check">2-3</td>
-                                <td class="check">1-2</td>
-                                <td class="check">1-2</td>
-                                <td class="check">1-2</td>
+                                <td class="check">1</td><td class="check">2</td><td class="check">3</td>
+                                <td class="check">1</td><td class="check">2</td><td class="check">2</td>
+                                <td class="check">2</td><td class="check">2</td><td class="check">3</td>
+                                <td class="check">1</td><td class="check">2</td><td class="check">2</td>
+                            </tr>
+                            <tr style="border-top: 2px solid #555;">
+                                <td><strong>Torch</strong></td>
+                                <td>8</td><td>12</td><td>16</td>
+                                <td>10</td><td>14</td><td>20</td>
+                                <td>8</td><td>12</td><td>16</td>
+                                <td>8</td><td>12</td><td>16</td>
                             </tr>
                             <tr>
-                                <td><strong>Torch (Curios)</strong></td>
-                                <td class="check">1-2</td>
-                                <td>-</td>
-                                <td class="check">1-2</td>
-                                <td>-</td>
-                            </tr>
-                            <tr style="border-top: 2px solid #333;">
-                                <td><strong>Torch (Mission)</strong></td>
-                                <td style="text-align: center;">Short: 8</td>
-                                <td colspan="2" style="text-align: center;">Medium: 12</td>
-                                <td style="text-align: center;">Long: 16</td>
+                                <td><strong>Food</strong></td>
+                                <td>8</td><td>12</td><td>20</td>
+                                <td>8</td><td>12</td><td>20</td>
+                                <td class="check">6</td><td class="check">8</td><td class="check">14</td>
+                                <td>8</td><td>12</td><td>20</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                </div>
     </div>
+
+    <!-- ===== BACK PAGE ===== -->
+    <div class="container-back">
+
+        <!-- SECTION 1: HERO RECOMMENDATIONS PER DUNGEON -->
+        <div class="back-affinity-section">
+            <div class="dungeon-cards">
+
+                <!-- RUINS -->
+                <div class="dungeon-card">
+                    <div class="dungeon-card-header ruins">Ruins &nbsp; 🩸👎 &nbsp; 🟢👍</div>
+                    <div class="hero-tier tier-rec">
+                        <span class="tier-label">★★ Recommended</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/crusader_portrait.png" alt="Crusader"><span>Crusader</span></div>
+                            <div class="hero-icon"><img src="image/vestal_portrait.png" alt="Vestal"><span>Vestal</span></div>
+                            <div class="hero-icon"><img src="image/plague_doctor_portrait.png" alt="Plague Doctor"><span>Pl. Doctor</span></div>
+                            <div class="hero-icon"><img src="image/occultist_portrait.png" alt="Occultist"><span>Occultist</span></div>
+                            <div class="hero-icon"><img src="image/grave_robber_portrait.png" alt="Grave Robber"><span>Gr. Robber</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-tier tier-ok">
+                        <span class="tier-label">★ OK</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/arbalest_portrait.png" alt="Arbalest"><span>Arbalest</span></div>
+                            <div class="hero-icon"><img src="image/hellion_portrait.png" alt="Hellion"><span>Hellion</span></div>
+                            <div class="hero-icon"><img src="image/highwayman_portrait.png" alt="Highwayman"><span>Hwy.man</span></div>
+                            <div class="hero-icon"><img src="image/leper_portrait.png" alt="Leper"><span>Leper</span></div>
+                            <div class="hero-icon"><img src="image/man_at_arms_portrait.png" alt="Man-at-Arms"><span>M-at-Arms</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEALD -->
+                <div class="dungeon-card">
+                    <div class="dungeon-card-header weald">Weald &nbsp; 🩸👍 &nbsp; 🟢👎</div>
+                    <div class="hero-tier tier-rec">
+                        <span class="tier-label">★★ Recommended</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/hellion_portrait.png" alt="Hellion"><span>Hellion</span></div>
+                            <div class="hero-icon"><img src="image/houndmaster_portrait.png" alt="Houndmaster"><span>Hndmstr.</span></div>
+                            <div class="hero-icon"><img src="image/flagellant_portrait.png" alt="Flagellant"><span>Flagellant</span></div>
+                            <div class="hero-icon"><img src="image/highwayman_portrait.png" alt="Highwayman"><span>Hwy.man</span></div>
+                            <div class="hero-icon"><img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter"><span>Bty.Hunter</span></div>
+                            <div class="hero-icon"><img src="image/grave_robber_portrait.png" alt="Grave Robber"><span>Gr.Robber</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-tier tier-ok">
+                        <span class="tier-label">★ OK</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/arbalest_portrait.png" alt="Arbalest"><span>Arbalest</span></div>
+                            <div class="hero-icon"><img src="image/man_at_arms_portrait.png" alt="Man-at-Arms"><span>M-at-Arms</span></div>
+                            <div class="hero-icon"><img src="image/jester_portrait.png" alt="Jester"><span>Jester</span></div>
+                            <div class="hero-icon"><img src="image/leper_portrait.png" alt="Leper"><span>Leper</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- WARRENS -->
+                <div class="dungeon-card">
+                    <div class="dungeon-card-header warrens">Warrens &nbsp; 🩸👍 &nbsp; ⚠️ Stress</div>
+                    <div class="hero-tier tier-rec">
+                        <span class="tier-label">★★ Recommended</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter"><span>Bty.Hunter</span></div>
+                            <div class="hero-icon"><img src="image/houndmaster_portrait.png" alt="Houndmaster"><span>Hndmstr.</span></div>
+                            <div class="hero-icon"><img src="image/jester_portrait.png" alt="Jester"><span>Jester</span></div>
+                            <div class="hero-icon"><img src="image/flagellant_portrait.png" alt="Flagellant"><span>Flagellant</span></div>
+                            <div class="hero-icon"><img src="image/hellion_portrait.png" alt="Hellion"><span>Hellion</span></div>
+                            <div class="hero-icon"><img src="image/occultist_portrait.png" alt="Occultist"><span>Occultist</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-tier tier-ok">
+                        <span class="tier-label">★ OK</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/grave_robber_portrait.png" alt="Grave Robber"><span>Gr.Robber</span></div>
+                            <div class="hero-icon"><img src="image/man_at_arms_portrait.png" alt="Man-at-Arms"><span>M-at-Arms</span></div>
+                            <div class="hero-icon"><img src="image/highwayman_portrait.png" alt="Highwayman"><span>Hwy.man</span></div>
+                            <div class="hero-icon"><img src="image/plague_doctor_portrait.png" alt="Plague Doctor"><span>Pl.Doctor</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COVE -->
+                <div class="dungeon-card">
+                    <div class="dungeon-card-header cove">Cove &nbsp; 🟢👍 &nbsp; 🩸👎</div>
+                    <div class="hero-tier tier-rec">
+                        <span class="tier-label">★★ Recommended</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/occultist_portrait.png" alt="Occultist"><span>Occultist</span></div>
+                            <div class="hero-icon"><img src="image/plague_doctor_portrait.png" alt="Plague Doctor"><span>Pl.Doctor</span></div>
+                            <div class="hero-icon"><img src="image/abomination_portrait.png" alt="Abomination"><span>Abomnatn.</span></div>
+                            <div class="hero-icon"><img src="image/shieldbreaker_portrait.png" alt="Shieldbreaker"><span>Shld.Brkr</span></div>
+                            <div class="hero-icon"><img src="image/grave_robber_portrait.png" alt="Grave Robber"><span>Gr.Robber</span></div>
+                        </div>
+                    </div>
+                    <div class="hero-tier tier-ok">
+                        <span class="tier-label">★ OK</span>
+                        <div class="hero-icons">
+                            <div class="hero-icon"><img src="image/man_at_arms_portrait.png" alt="Man-at-Arms"><span>M-at-Arms</span></div>
+                            <div class="hero-icon"><img src="image/crusader_portrait.png" alt="Crusader"><span>Crusader</span></div>
+                            <div class="hero-icon"><img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter"><span>Bty.Hunter</span></div>
+                            <div class="hero-icon"><img src="image/arbalest_portrait.png" alt="Arbalest"><span>Arbalest</span></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div><!-- end .dungeon-cards -->
+        </div><!-- end .back-affinity-section -->
+
+        <!-- SECTION 2: BOSS GRID -->
+        <div class="back-boss-grid">
+
+            <!-- ROW 1 -->
+            <!-- Necromancer Lord -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_necromancer.gif" alt="Necromancer Lord"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header ruins">Necromancer Lord · Ruins</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Moves backward each turn; summons Skeletons into rank 1 every round</li>
+                            <li>Higher tiers: Skeletons spawn with Stealth for 2 rounds</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Kill Skeletons immediately (Crusader in front); stack Blight on the Necromancer</li>
+                            <li>Use pull skills to keep him in melee range (Houndmaster, Bounty Hunter)</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/crusader_portrait.png" alt="Crusader" title="Crusader">
+                            <img src="image/grave_robber_portrait.png" alt="Grave Robber" title="Grave Robber">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/arbalest_portrait.png" alt="Arbalest" title="Arbalest">
+                            <img src="image/houndmaster_portrait.png" alt="Houndmaster" title="Houndmaster">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Prophet -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_prophet.png" alt="Prophet"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header ruins">The Prophet · Ruins</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Starts rank 4; marks 1–2 ranks → "Rubble of Ruin" hits those ranks (potentially lethal)</li>
+                            <li>3 Pews block front ranks; only 1 normal action/turn</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Stack debuffs (Intimidate, Weakening Curse) to reduce Rubble damage to near zero</li>
+                            <li>Man-at-Arms Guard protects marked heroes; Shieldbreaker Serpent Sway dodges it</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                            <img src="image/arbalest_portrait.png" alt="Arbalest" title="Arbalest">
+                            <img src="image/man_at_arms_portrait.png" alt="Man-at-Arms" title="Man-at-Arms">
+                            <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Hag -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_hag.png" alt="Hag"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header weald">The Hag · Weald</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Throws a hero into the Cauldron (can't act, takes damage every action)</li>
+                            <li>2 actions/round → DOTs tick twice; high Stun resist</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Ignore the pot — focus all damage on the Hag directly</li>
+                            <li>Grave Robber Shadow Fade = untargetable; stack Bleed on Hag</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="helden-split">
+                            <div>
+                                <div class="helden-col-label">Recommended</div>
+                                <div class="helden-col">
+                                    <img src="image/hellion_portrait.png" alt="Hellion" title="Hellion">
+                                    <img src="image/grave_robber_portrait.png" alt="Grave Robber" title="Grave Robber">
+                                    <img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter" title="Bounty Hunter">
+                                    <img src="image/abomination_portrait.png" alt="Abomination" title="Abomination">
+                                    <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="helden-col-label avoid-label-col">Avoid</div>
+                                <div class="helden-col avoid-col">
+                                    <img src="image/crusader_portrait.png" alt="Crusader" title="Avoid: Crusader" class="avoid-img">
+                                    <img src="image/leper_portrait.png" alt="Leper" title="Avoid: Leper" class="avoid-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Brigand Pounder -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_brigand_pounder.png" alt="Brigand Pounder"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header weald">Brigand Pounder · Weald</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Cannon has extreme PROT; Fusilier fires it at round end → massive AoE damage</li>
+                            <li>Cannon Ripostes non-lethal hits against it</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Kill/stun the Fusilier (Lighter) BEFORE he acts every round</li>
+                            <li>Crits bypass the Cannon's PROT; ignore other Brigands</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter" title="Bounty Hunter">
+                            <img src="image/arbalest_portrait.png" alt="Arbalest" title="Arbalest">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- ROW 2 -->
+            <!-- Swine Prince -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_swine_prince.png" alt="Swine Prince"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header warrens">Swine Prince + Wilbur · Warrens</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Wilbur marks heroes → Prince hits marked targets for devastating damage</li>
+                            <li>Hitting Wilbur = Party-wide Rage! Killing Wilbur = Permanent Berserk!</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>NEVER deal damage to Wilbur; only 0-damage stuns allowed on him</li>
+                            <li>Arbalest Rallying Flare removes all marks → Prince uses weak Wild Flailing</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/arbalest_portrait.png" alt="Arbalest" title="Arbalest (near-essential)">
+                            <img src="image/houndmaster_portrait.png" alt="Houndmaster" title="Houndmaster">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                            <img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter" title="Bounty Hunter">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- The Flesh -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_flesh.png" alt="The Flesh"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header warrens">The Flesh · Warrens</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>4 body parts (Head, Bone, Heart, Butt) share one HP pool, all act each round</li>
+                            <li>Bone: AoE Stun; Head: heavy Bleed rank 1–2; Butt: Blight rank 3–4; Heart: heals others</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Target the Heart first — it has 0% PROT and heals the other parts</li>
+                            <li>DoTs bypass all part PROT; Shieldbreaker Pierce ignores PROT on other parts</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/flagellant_portrait.png" alt="Flagellant" title="Flagellant">
+                            <img src="image/shieldbreaker_portrait.png" alt="Shieldbreaker" title="Shieldbreaker">
+                            <img src="image/abomination_portrait.png" alt="Abomination" title="Abomination">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Siren -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_siren.png" alt="Siren"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header cove">The Siren · Cove</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Charms a random hero (fights for her); 2 actions/round; summons Pelagics</li>
+                            <li>High Bleed resist; apply Holy Water before the fight to resist charm</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Equip Holy Water on ALL 4 heroes BEFORE the fight (big charm resist bonus)</li>
+                            <li>Damage race — kill her fast; stack Blight; Leper resists charm with Solemnity</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper (charm resist)">
+                            <img src="image/grave_robber_portrait.png" alt="Grave Robber" title="Grave Robber">
+                            <img src="image/crusader_portrait.png" alt="Crusader" title="Crusader">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- ROW 3 -->
+            <!-- Drowned Crew -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_drowned_crew.png" alt="Drowned Crew"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header cove">Drowned Crew · Cove</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Summons Anchorman (anchors frontmost hero — immobile + Crew heals)</li>
+                            <li>3 actions/round → DoTs extremely effective; low Stun resist</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Kill the Anchorman immediately when it appears (stops healing)</li>
+                            <li>Stack Blight — 3 actions/round means DoTs deal massive total damage</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/crusader_portrait.png" alt="Crusader" title="Crusader">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter" title="Bounty Hunter">
+                            <img src="image/highwayman_portrait.png" alt="Highwayman" title="Highwayman">
+                            <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Brigand Vvulf -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_vvulf.png" alt="Brigand Vvulf"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header special">Brigand Vvulf · Town Event</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Places a bomb on a random rank each round — explodes at round end</li>
+                            <li>Barrel Ripostes; calls Brigand reinforcements; needs Lvl 5 heroes!</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Man-at-Arms MUST Guard the bomb target every round (essential)</li>
+                            <li>Stack Bleed/Blight — his many actions make DOTs extremely effective</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/man_at_arms_portrait.png" alt="Man-at-Arms" title="Man-at-Arms (essential)">
+                            <img src="image/arbalest_portrait.png" alt="Arbalest" title="Arbalest">
+                            <img src="image/hellion_portrait.png" alt="Hellion" title="Hellion">
+                            <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Shrieker -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shrieker.png" alt="Shrieker"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header special">The Shrieker · Town Event</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Steals 8 trinkets; fight lasts exactly 4 rounds — auto-win after round 4!</li>
+                            <li>Fights with its Nest; extreme DODGE (40–60%); immune to Blight</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Just survive 4 rounds — no need to deal damage at all</li>
+                            <li>Kill the Nest for bonus loot; Highwayman Riposte triggers constantly on its attacks</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/highwayman_portrait.png" alt="Highwayman" title="Highwayman (Riposte)">
+                            <img src="image/man_at_arms_portrait.png" alt="Man-at-Arms" title="Man-at-Arms">
+                            <img src="image/houndmaster_portrait.png" alt="Houndmaster" title="Houndmaster">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper">
+                            <img src="image/jester_portrait.png" alt="Jester" title="Jester">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Shambler -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shambler.png" alt="Shambler"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header special">The Shambler · Any Dungeon</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Always fights at 0 torch (surprise round!); constantly shuffles party</li>
+                            <li>Summons 2 Tentacles/round — Tentacles gain buffs with every action</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Kill Tentacles IMMEDIATELY each round before they become unkillable</li>
+                            <li>Use heroes who attack from any rank; bring a stress healer for darkness</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="helden-split">
+                            <div>
+                                <div class="helden-col-label">Recommended</div>
+                                <div class="helden-col">
+                                    <img src="image/hellion_portrait.png" alt="Hellion" title="Hellion">
+                                    <img src="image/highwayman_portrait.png" alt="Highwayman" title="Highwayman">
+                                    <img src="image/grave_robber_portrait.png" alt="Grave Robber" title="Grave Robber">
+                                    <img src="image/jester_portrait.png" alt="Jester" title="Jester">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="helden-col-label avoid-label-col">Avoid</div>
+                                <div class="helden-col avoid-col">
+                                    <img src="image/leper_portrait.png" alt="Leper" title="Avoid: Leper" class="avoid-img">
+                                    <img src="image/arbalest_portrait.png" alt="Arbalest" title="Avoid: Arbalest" class="avoid-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Shuffling Horror -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_shuffling_horror.gif" alt="Shuffling Horror"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header darkest">Shuffling Horror · DD Q1</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>2 actions/round; constantly shuffles the party; high stress damage</li>
+                            <li>Cultist Priest summons reinforcements if killed</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>STUN the Cultist Priest — do NOT kill him!</li>
+                            <li>Riposte builds work well; use heroes who can attack from any rank</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter" title="Bounty Hunter">
+                            <img src="image/hellion_portrait.png" alt="Hellion" title="Hellion">
+                            <img src="image/highwayman_portrait.png" alt="Highwayman" title="Highwayman">
+                            <img src="image/jester_portrait.png" alt="Jester" title="Jester">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Templar Impaler -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_templar_impaler.png" alt="Templar Impaler"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header darkest">Templar Impaler · DD Q2</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>"Revelation": 40 Stress + damage to ALL (Talisman of the Flame negates this!)</li>
+                            <li>Heavy Blight melee in front; low Move resist — can be pushed back</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li><strong>3× Talisman of the Flame REQUIRED</strong> (Revelation: 40→8 Stress, 0 dmg)</li>
+                            <li>Guard the unprotected 4th hero; push Impaler backward; bring Antivenom</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/man_at_arms_portrait.png" alt="Man-at-Arms" title="Man-at-Arms">
+                            <img src="image/houndmaster_portrait.png" alt="Houndmaster" title="Houndmaster">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                            <img src="image/flagellant_portrait.png" alt="Flagellant" title="Flagellant">
+                            <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- ROW 4 -->
+            <!-- Templar Warlord -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_templar_warlord.png" alt="Templar Warlord"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header darkest">Templar Warlord · DD Q2</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Like Impaler: "Revelation" = Talisman of the Flame required; AoE Blight attacks</li>
+                            <li>Cannot be repositioned (98% Move resist)</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li><strong>3× Talisman of the Flame REQUIRED</strong>; Guard the unprotected hero</li>
+                            <li>Houndmaster Cry Havoc for stress heal between rooms; stock Antivenom</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/man_at_arms_portrait.png" alt="Man-at-Arms" title="Man-at-Arms">
+                            <img src="image/houndmaster_portrait.png" alt="Houndmaster" title="Houndmaster">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                            <img src="image/flagellant_portrait.png" alt="Flagellant" title="Flagellant">
+                            <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Mammoth Cyst -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_mammoth_cyst.gif" alt="Mammoth Cyst"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header darkest">Mammoth Cyst · DD Q3</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>2 actions/round; White Cell Stalk teleports party to random room on the map</li>
+                            <li>At 50% HP the Cyst begins self-healing; Stalk respawns when killed</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Stun or kill the Stalk every round before it acts — teleport is the main threat</li>
+                            <li>Blight effective; Plague Doctor Blinding Gas stuns both Cyst and Stalk at once</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/hellion_portrait.png" alt="Hellion" title="Hellion">
+                            <img src="image/shieldbreaker_portrait.png" alt="Shieldbreaker" title="Shieldbreaker">
+                            <img src="image/bounty_hunter_portrait.png" alt="Bounty Hunter" title="Bounty Hunter">
+                            <img src="image/occultist_portrait.png" alt="Occultist" title="Occultist">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Heart of Darkness -->
+            <div class="boss-card">
+                <div class="boss-card-left"><div class="boss-img-wrap"><img src="image/boss_heart_of_darkness.png" alt="Heart of Darkness"></div></div>
+                <div class="boss-card-right">
+                <div class="boss-card-header darkest">Heart of Darkness · DD Q4</div>
+                <div class="boss-card-body">
+                    <div class="boss-section macht">
+                        <div class="boss-section-label">What it does</div>
+                        <ul>
+                            <li>Phase 1: Only killing Imperfect Reflections damages the Ancestor (kill 5 to advance)</li>
+                            <li>Phase 4: "Come Unto Your Maker" instantly kills one hero at 2/3 HP AND again at 1/3 HP — no retreat possible!</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section strat">
+                        <div class="boss-section-label">Strategy</div>
+                        <ul>
+                            <li>Phase 4: Maximize burst damage to skip HP thresholds, OR prepare self-sustaining heroes for the final 2-hero phase</li>
+                            <li>Self-healing is critical — party shrinks to 2; no retreat from Q4!</li>
+                        </ul>
+                    </div>
+                    <div class="boss-section helden">
+                        <div class="boss-section-label">Recommended</div>
+                        <div class="helden-icons">
+                            <img src="image/leper_portrait.png" alt="Leper" title="Leper (burst damage)">
+                            <img src="image/plague_doctor_portrait.png" alt="Plague Doctor" title="Plague Doctor">
+                            <img src="image/crusader_portrait.png" alt="Crusader" title="Crusader">
+                            <img src="image/flagellant_portrait.png" alt="Flagellant" title="Flagellant">
+                            <img src="image/hellion_portrait.png" alt="Hellion" title="Hellion">
+                            <img src="image/vestal_portrait.png" alt="Vestal" title="Vestal">
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+        </div><!-- end .back-boss-grid -->
+
+    </div><!-- end .container-back -->
+
 </body>
 </html>
